@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./styles.css";
-const App = () => {
+import "./uplode.css";
+const Uplode = () => {
   const [imgPreview, setImgPreview] = useState(null);
   const [error, setError] = useState(false);
 
@@ -49,4 +49,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Uplode;

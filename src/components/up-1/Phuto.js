@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./App.css";
-export class App extends Component {
+import "./style.css";
+export class Phuto extends Component {
   state = {
     profileImg:
       "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
@@ -42,4 +42,4 @@ export class App extends Component {
   }
 }
 
-export default App;
+export default Phuto;
