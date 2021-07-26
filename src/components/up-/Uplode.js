@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import "./uplode.css";
-const Uplode = () => {
+import "./style.css";
+const Photo = () => {
   const [imgPreview, setImgPreview] = useState(null);
   const [error, setError] = useState(false);
 
   const handleImageChange = (e) => {
     setError(false);
     const selected = e.target.files[0];
-    const ALLOWD_TYPES = ["image/png", "image/jpeg", "image/jpg"];
-    if (selected && ALLOWD_TYPES.includes(selected.type)) {
+    const ALLOWED_TYPES = ["image/png", "image/jpeg", "image/jpg"];
+    if (selected && ALLOWED_TYPES.includes(selected.type)) {
       let reader = new FileReader();
       reader.onloadend = () => {
         setImgPreview(reader.result);
@@ -26,7 +26,7 @@ const Uplode = () => {
           className="imgPreview"
           style={{
             background: imgPreview
-              ? `url("${imgPreview}")no-repeat center/cover`
+              ? `url("${imgPreview}") no-repeat center/cover`
               : "#131313",
           }}
         >
@@ -34,14 +34,14 @@ const Uplode = () => {
             <>
               <p>Add an image</p>
               <label htmlFor="fileUpload" className="customFileUpload">
-                Choose file
+                Choos file
               </label>
               <input type="file" id="fileUpload" onChange={handleImageChange} />
               <span>(jpg, jpeg or png)</span>
             </>
           )}
         </div>
-        {!imgPreview && (
+        {imgPreview && (
           <button onClick={() => setImgPreview(null)}>Remove image</button>
         )}
       </div>
@@ -49,4 +49,4 @@ const Uplode = () => {
   );
 };
 
-export default Uplode;
+export default Photo;
