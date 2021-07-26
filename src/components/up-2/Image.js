@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-// import './App.css'
-
-function Image() {
+const UpImg = () => {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -10,10 +8,10 @@ function Image() {
     const files = e.target.files;
     const data = new FormData();
     data.append("file", files[0]);
-    data.append("upload_preset", "darwin");
+    data.append("upload_preset", "w4rmr6ys");
     setLoading(true);
     const res = await fetch(
-      "https://cdn.contentful.com/spaces/nqk179gklslu/environments/master/entries",
+      "https://api.cloudinary.com/v1_1/qashqai/image/upload",
       {
         method: "POST",
         body: data,
@@ -24,23 +22,22 @@ function Image() {
     setImage(file.secure_url);
     setLoading(false);
   };
-
   return (
-    <div className="App">
-      <h1>Upload Image</h1>
+    <div>
+      <h2>Upload Img</h2>
       <input
         type="file"
         name="file"
-        placeholder="Upload an image"
+        placeholder="uploadImage"
         onChange={uploadImage}
       />
       {loading ? (
         <h3>Loading...</h3>
       ) : (
-        <img src={image} style={{ width: "300px" }} />
+        <img src={image} style={{ width: "200px" }} />
       )}
     </div>
   );
-}
+};
 
-export default Image;
+export default UpImg;
